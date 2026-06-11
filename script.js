@@ -1,0 +1,1 @@
+document.getElementById('callbackForm').addEventListener('submit', function(e){e.preventDefault();document.getElementById('formMsg').textContent='Thank you! Your callback request has been received.';this.reset();});
