@@ -172,7 +172,7 @@ nav a.active,nav a:hover {
 .hero-art .arc {
     position: absolute;
     width: 640px;
-    right: -60px;
+    right: -80px;
     bottom: 0
 }
 
@@ -187,16 +187,16 @@ nav a.active,nav a:hover {
 .hero-bg-left img {
     position: absolute;
     left: 0;
-    bottom: 35px;
+    bottom: -200px;
     width: 210px;
     opacity: .9
 }
 
 .hero-bg-right img {
     position: absolute;
-    right: 0;
-    bottom: 30px;
-    width: 200px;
+    right: -60px;
+    bottom: 0;
+    width: 280px;
     z-index: 1;
     opacity: .95
 }
@@ -606,30 +606,102 @@ footer {
     margin-top: 24px
 }
 
+/* Hamburger button */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 55;
+    flex-shrink: 0
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: var(--purple);
+    border-radius: 2px;
+    transition: .25s
+}
+
+.site-header.nav-open .hamburger span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg)
+}
+
+.site-header.nav-open .hamburger span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0)
+}
+
+.site-header.nav-open .hamburger span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg)
+}
+
 @media(max-width: 960px) {
     .site-header {
-        height:auto
+        height: auto
     }
 
     .nav-wrap {
-        padding: 12px 0;
-        flex-wrap: wrap
+        padding: 14px 0;
+        flex-wrap: nowrap;
+        position: relative
     }
 
     .brand img {
-        width: 125px
+        width: 110px
     }
 
-    nav {
-        order: 3;
-        width: 100%;
-        justify-content: center;
-        gap: 14px;
-        flex-wrap: wrap
+    .hamburger {
+        display: flex
     }
 
     .top-btn {
-        padding: 12px 18px
+        display: none !important
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 0;
+        box-shadow: 0 8px 24px rgba(50,19,64,.14);
+        border-top: 2px solid var(--purple);
+        z-index: 100;
+        order: unset;
+        width: auto;
+        flex-wrap: nowrap;
+        justify-content: flex-start
+    }
+
+    nav a {
+        padding: 14px 24px;
+        border-bottom: 1px solid var(--line);
+        font-size: 15px;
+        font-weight: 600;
+        color: #231934
+    }
+
+    nav a:last-child {
+        border-bottom: 0
+    }
+
+    .site-header.nav-open nav {
+        display: flex
+    }
+
+    .hero-bg-left,.hero-bg-right {
+        display: none
     }
 
     .hero-grid,.contact-grid {
@@ -637,7 +709,7 @@ footer {
     }
 
     .hero-copy {
-        padding: 48px 0 15px
+        padding: 40px 0 10px
     }
 
     .hero-copy h1 {
@@ -649,19 +721,19 @@ footer {
     }
 
     .hero-art {
-        height: 440px
+        height: 380px
     }
 
     .hero-art .arc {
         right: 50%;
         transform: translateX(50%);
-        width: 590px
+        width: 500px
     }
 
     .hero-art .girl {
         right: 50%;
         transform: translateX(50%);
-        width: 310px
+        width: 270px
     }
 
     .promise-grid,.cards,.info-grid,.footer-grid {
@@ -674,7 +746,7 @@ footer {
     }
 
     .cards {
-        max-width: 420px
+        max-width: 100%
     }
 
     .thank-grid {
@@ -685,31 +757,40 @@ footer {
     .thank-grid img {
         margin: auto
     }
+
+    .promise-grid article {
+        padding: 15px 30px
+    }
 }
 
 @media(max-width: 560px) {
     .hero-copy h1 {
-        font-size:31px
+        font-size: 30px
     }
 
     .hero-copy h1 span {
-        font-size: 41px
+        font-size: 40px
     }
 
     .hero-actions {
         display: grid
     }
 
+    .btn {
+        padding: 15px 20px;
+        font-size: 14px
+    }
+
     .hero-art {
-        height: 340px
+        height: 300px
     }
 
     .hero-art .arc {
-        width: 460px
+        width: 380px
     }
 
     .hero-art .girl {
-        width: 235px
+        width: 200px
     }
 
     .trust-pill {
@@ -725,6 +806,26 @@ footer {
     }
 
     .contact-section h2 {
-        font-size: 32px
+        font-size: 28px
+    }
+
+    .soft-card h2,.cta-card h2 {
+        font-size: 22px
+    }
+
+    .info-grid {
+        gap: 14px
+    }
+
+    .footer-grid {
+        gap: 28px
+    }
+
+    .section-head h2 {
+        font-size: 26px
+    }
+
+    .promise-grid h3 {
+        font-size: 20px
     }
 }
